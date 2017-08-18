@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+  <title>ouragan</title>
   <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -51,6 +52,20 @@
       <button id ="save">Save</button>
       <button id="clearPlane">Clear Plane</button>
     </div>
+
+    <!--<div class="w3-content" style="max-width:1564px ;background-color: lightcyan" align="center">-->
+      <!--<h4 style="color: blue"> Example Qusetions </h4>-->
+      <!--Question1 :  Mark following inequality (x+2) < 6 in the given numberline.-->
+
+
+      <!--<h4 style="color: blue"> Instruction To Draw </h4>-->
+
+      <!--*  For marking the point you can select a FILLED DOT or NON FILLED DOT depending on the condition.-->
+      <!--<br>-->
+      <!--*  After placing the dot on the numberline, move the mouse in desired direction to get the marked line .-->
+      <!--<br>-->
+    <!--</div>-->
+
   </div>
     <script type="text/javascript">
     	function onLoad(){
@@ -169,12 +184,12 @@
 
         $.ajax({
             crossDomain: true,
-            url: 'http://localhost:8080/MathsTutorUI/saveTrig',
+            url: 'http://mathstutordiagrams.projects.mrt.ac.lk:8080/mathsTutor/saveTrig',
             type: 'POST',
             data: {
                 svg,
             },
-            success: function(){alert('POST completed');}
+            success: function(){alert('Saved Successfully.');}
         });
     		//sending the svg to the server
     		//07.09 - Commented for testing

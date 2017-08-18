@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+    <title>ouragan</title>
     <head>
 		<meta charset="UTF-8" />
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -56,13 +57,22 @@
               <input type="number" name="range" id="range"><br>
              <input type="Button" value="Submit" id="submit" onclick=" submitForm()">
         </form>
-        
 
-        
         
         </div>
 
+        <!--<div class="w3-content" style="max-width:1564px ;background-color: lightcyan" align="center">-->
+            <!--<h4 style="color: blue"> Example Qusetions </h4>-->
+            <!--Question1 :  Mark following inequality (x+2) < 6 in the given numberline.-->
 
+
+            <!--<h4 style="color: blue"> Instruction To Draw </h4>-->
+
+            <!--*  For marking the point you can select a FILLED DOT or NON FILLED DOT depending on the condition.-->
+            <!--<br>-->
+            <!--*  After placing the dot on the numberline, move the mouse in desired direction to get the marked line .-->
+            <!--<br>-->
+        <!--</div>-->
 
          <script type="text/javascript">
              
@@ -259,7 +269,8 @@
     
         
         function drawCuttingLineInX(x,valueX){
-            var xCut = new fabric.Line([x,450 , x, 440], {
+            var xCut = new fabric.Line([x,450 , x, 435
+            ], {
                 strokeWidth: 2,
                 fill: 'black',
                 stroke: 'black',
@@ -291,7 +302,7 @@
              
              
            function drawCuttingLineInY(y,valueY){
-            var yCut = new fabric.Line([100, y, 93, y], {
+            var yCut = new fabric.Line([105, y, 93, y], {
                 strokeWidth: 2,
                 fill: 'black',
                 stroke: 'black',
@@ -459,17 +470,21 @@
 
          $.ajax({
              crossDomain: true,
-             url: 'http://localhost:8080/MathsTutorUI/saveHistogram',
+             url: 'http://mathstutordiagrams.projects.mrt.ac.lk:8080/mathsTutor/saveHistogram',
              type: 'POST',
              data: {
                  svg,
              },
-             success: function(){alert('POST completed');}
+             success: function(){
+
+             }
+         }).done(function() {
+             alert( "Saved Successfully.Thank you");
          });
      });
 
-             drawAxis();
-            nameAxis();
+     drawAxis();
+     nameAxis();
              
             
 

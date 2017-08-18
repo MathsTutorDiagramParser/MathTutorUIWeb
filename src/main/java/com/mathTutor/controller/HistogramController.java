@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.xml.sax.SAXException;
 
 import javax.servlet.ServletContext;
@@ -27,8 +28,9 @@ public class HistogramController {
 
 
     @RequestMapping(value = "/saveHistogram" , method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public void storeInput (@RequestParam("answer") String inputStr) throws IOException, ParserConfigurationException, SAXException, TransformerException {
+    public ModelAndView storeInput (@RequestParam("answer") String inputStr) throws IOException, ParserConfigurationException, SAXException, TransformerException {
 
+        ModelAndView model = new ModelAndView("venn_tree");
         logger.info("===================Start writing================");
         String decodedStr = java.net.URLDecoder.decode(inputStr, "UTF-8");
         String xmlString = decodedStr.substring(decodedStr.indexOf("=")+1);
@@ -37,15 +39,19 @@ public class HistogramController {
         byte[] data = xmlString.toString().getBytes();
 
         try{
-            String path = "G:\\tomcat8\\apache-tomcat-8.0.44\\webapps\\MathsTutorUI\\WEB-INF\\Files\\histogram\\answer"+System.currentTimeMillis()+".svg";
+            String path = "\\var\\lib\\tomcat7\\webapps\\mathsTutor\\WEB-INF\\Files\\histogram\\answer"+System.currentTimeMillis()+".svg";
             File file = new File(path);
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file);
             fos.write(data);
             fos.close();
+            model.addObject("msg" , "Data Saved Successfully.");
         }catch (Exception e){
             logger.info(e.toString());
+            model.addObject("msg" , "Failed to Save.");
         }
+        return model;
     }
+
 
 }

@@ -70,7 +70,7 @@
                     <version>2.4</version>
                     <configuration>
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>MathsTutorTest</warName>
+                        <warName>mathsTutor</warName>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
                     </configuration>
                 </plugin>
@@ -81,7 +81,7 @@
                     <configuration>
                         <server>TomcatServer</server>
                         <url>http://localhost:8080/manager/html</url>
-                        <path>/MathTutorUI</path>
+                        <path>/mathsTutor</path>
                         <username>madhavi</username>
                         <password>123</password>
                     </configuration>
