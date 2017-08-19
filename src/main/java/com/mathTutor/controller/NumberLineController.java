@@ -38,7 +38,7 @@ public class NumberLineController {
     Logger logger = LoggerFactory.getLogger(NumberLineController.class);
 
     @RequestMapping(value = "/saveNumberLine" , method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ModelAndView storeInput (@RequestParam("answer") String inputStr) throws IOException, ParserConfigurationException, SAXException, TransformerException {
+    public ModelAndView storeInput (@RequestParam("answer") String inputStr) throws UnsupportedEncodingException {
 
         ModelAndView model = new ModelAndView("NumberLine");
         logger.info("===================Start writing================");
@@ -49,7 +49,7 @@ public class NumberLineController {
         byte[] data = xmlString.toString().getBytes();
 
         try{
-            String path = "\\var\\lib\\tomcat7\\webapps\\mathsTutor\\WEB-INF\\Files\\numberline\\answer"+System.currentTimeMillis()+".svg";
+            String path = "dataFiles/numberline/answer"+System.currentTimeMillis()+".svg";
             File file = new File(path);
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file);

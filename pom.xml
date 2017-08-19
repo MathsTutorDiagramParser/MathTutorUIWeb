@@ -80,10 +80,10 @@
                     <version>2.2</version>
                     <configuration>
                         <server>TomcatServer</server>
-                        <url>http://localhost:8080/manager/html</url>
+                        <url>http://mathstutordiagrams.projects.mrt.ac.lk:8080/manager/html</url>
                         <path>/mathsTutor</path>
-                        <username>madhavi</username>
-                        <password>123</password>
+                        <username>mathstutor</username>
+                        <password>C$e#tutoR2017</password>
                     </configuration>
                 </plugin>
             </plugins>

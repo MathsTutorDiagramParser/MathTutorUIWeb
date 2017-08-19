@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,8 @@ import java.io.IOException;
 /**
  * Created by Madhavi Ruwandika on 8/9/2017.
  */
+
+@Controller
 public class TrigController {
 
     @Autowired
@@ -38,7 +41,7 @@ public class TrigController {
         byte[] data = xmlString.toString().getBytes();
 
         try{
-            String path = "\\var\\lib\\tomcat7\\webapps\\mathsTutor\\WEB-INF\\Files\\trignometric\\answer"+System.currentTimeMillis()+".svg";
+            String path = "dataFiles/trigDiagram/answer"+System.currentTimeMillis()+".svg";
             File file = new File(path);
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file);

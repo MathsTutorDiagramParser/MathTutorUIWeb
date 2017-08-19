@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-  <title>ouragan</title>
+
   <head>
+    <title>ouragan</title>
+    <link rel="shortcut icon" href="resources/img/logo.jpg">
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!--link rel="stylesheet" href="editor.css"-->
@@ -24,15 +26,15 @@
   <body>
 
   <!-- Navbar (sit on top) -->
-  <div class="w3-top" style="margin-bottom: 100px" >
+  <div class="w3-top" style="margin-bottom: 50px" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card-2" align="center">
-      <b>Trig </b>
+      <b>Trignometric diagram </b>
       <!-- Float links to the right. Hide them on small screens -->
     </div>
   </div>
-  <div style="margin-top: 100px;"align="center">
+  <div style="margin-top: 50px;"align="center">
     <div id='c1'>
-      <canvas id="myCanvas" width="800" height="500" style="border:1px solid #000000;"></canvas>
+      <canvas id="myCanvas" width="800" height="400" style="border:1px solid #000000;"></canvas>
     </div>
 
     <div class="col-lg-10">
@@ -53,18 +55,23 @@
       <button id="clearPlane">Clear Plane</button>
     </div>
 
-    <!--<div class="w3-content" style="max-width:1564px ;background-color: lightcyan" align="center">-->
-      <!--<h4 style="color: blue"> Example Qusetions </h4>-->
-      <!--Question1 :  Mark following inequality (x+2) < 6 in the given numberline.-->
+    <div class="w3-content" style="max-width:1564px ;background-color: lightcyan" align="center">
+      <h4 style="color: blue"> Example Qusetions </h4>
+      <div style="width: 800px; height: 200px">
+        <img src="resources/img/trigQ.png" width="75%">
+      </div>
 
-
-      <!--<h4 style="color: blue"> Instruction To Draw </h4>-->
-
-      <!--*  For marking the point you can select a FILLED DOT or NON FILLED DOT depending on the condition.-->
-      <!--<br>-->
-      <!--*  After placing the dot on the numberline, move the mouse in desired direction to get the marked line .-->
-      <!--<br>-->
-    <!--</div>-->
+      <h4 style="color: blue"> Instruction To Draw </h4>
+      <div style="margin-left: 300px" align="left">
+        * Use the BRANCH option to draw the lines and copy the diagram given in the question.
+        <br>
+        * DO NOT use the RECTANGLE option to draw.
+        <br>
+        * Mark the labels for angles and sides using the TEXT LABEL option
+        <br>
+        <br>
+      </div>
+    </div>
 
   </div>
     <script type="text/javascript">
@@ -187,7 +194,7 @@
             url: 'http://mathstutordiagrams.projects.mrt.ac.lk:8080/mathsTutor/saveTrig',
             type: 'POST',
             data: {
-                svg,
+                answer: svg,
             },
             success: function(){alert('Saved Successfully.');}
         });

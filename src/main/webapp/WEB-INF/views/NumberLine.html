@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-  <title>ouragan</title>
+
   <head>
+      <title>ouragan</title>
+      <link rel="shortcut icon" href="resources/img/logo.jpg">
     <meta charset="utf-8"/>
     <style>
       body {
@@ -43,10 +45,12 @@
 
         <h4 style="color: blue"> Instruction To Draw </h4>
 
-        *  For marking the point you can select a FILLED DOT or NON FILLED DOT depending on the condition.
-        <br>
-        *  After placing the dot on the numberline, move the mouse in desired direction to get the marked line .
-        <br>
+        <div style="margin-left: 200px" align="left">
+            *    For marking the point you can select a FILLED DOT or NON FILLED DOT depending on the condition.
+            <br>
+            *    After placing the dot on the numberline, move the mouse in desired direction to get the marked line and double click after moving it to the desired end point.
+            <br>
+        </div>
         <h5 style="color: red ">* do not forget to 'save' your drawings.</h5>
         <h4 style="color: blue"> Example Qusetions </h4>
         Question1 :  Mark following inequality (x+2) < 6 in the given numberline.
@@ -349,12 +353,11 @@
 				data: {
 					answer: svg,
 				},
-				success: function(){}
-			}).done(function() {
-                alert( 'Saved Successfully.');
-                clearPlane();
-
-            });
+				success: function(){
+                    alert( 'Saved Successfully.');
+                    clearPlane();
+                }
+			});
            
 		});
 		

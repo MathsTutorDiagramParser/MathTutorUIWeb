@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-  <title>ouragan</title>
-  <head>
 
+  <head>
+    <title>ouragan</title>
+    <link rel="shortcut icon" href="resources/img/logo.jpg">
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <!--link rel="stylesheet" href="editor.css"-->
@@ -30,16 +31,16 @@
     <!-- Float links to the right. Hide them on small screens -->
   </div>
 </div>
-<div style="margin-top: 100px;" align="center">
+<div style="margin-top: 50px;" align="center">
   <div id='c1'>
-    <canvas id="myCanvas" width="800" height="500" style="border:1px solid #000000;"></canvas>
+    <canvas id="myCanvas" width="800" height="400" style="border:1px solid #000000;"></canvas>
   </div>
 
   <div class="col-lg-10">
     <button id="drawBranch">Branch</button>
     <button id="editBranch">Edit Branch</button>
     <button id="enterText">Text Label</button>
-    <button id="drawing-mode" class="btn btn-info">Colour</button>
+    <button id="drawing-mode" class="btn btn-info" style="display: none;">Colour</button>
     <div style="display: none;" id="drawing-mode-options">
       <label for="drawing-color">Line color:</label>
       <input type="color" value="#005E7A" id="drawing-color"><br>
@@ -69,7 +70,7 @@
 
       <h4 style="color: blue" align="center"> Instruction To Draw </h4>
       <div align="center">
-        *  Use ‘Branch’ button to draw branches on the editor and ‘Text Label’ button to label your diagram.
+        *  Use 'Branch' button to draw branches on the editor and 'Text Label' button to label your diagram.
         <h5 style="color: red "> do not forget to 'save' your drawings.</h5>
       </div>
 
@@ -166,7 +167,6 @@
 
     $('#save').click(function (e){
         var svg = canvas.toSVG();
-
         fabric.log(svg);
 
         $.ajax({
@@ -174,9 +174,12 @@
             url: 'http://mathstutordiagrams.projects.mrt.ac.lk:8080/mathsTutor/saveTreeDiagram',
             type: 'POST',
             data: {
-                svg,
+                answer: svg,
             },
-            success: function(){alert('POST completed');}
+            success: function(){
+                alert( 'Saved Successfully.');
+                canvas.clear();
+            }
         });
     });
 
