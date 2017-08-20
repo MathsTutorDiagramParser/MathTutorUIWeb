@@ -35,10 +35,9 @@ public class TreeDiagramController {
         ModelAndView model = new ModelAndView("venn_tree");
         logger.info("===================Start writing================");
         String decodedStr = java.net.URLDecoder.decode(inputStr, "UTF-8");
-        String xmlString = decodedStr.substring(decodedStr.indexOf("=")+1);
         logger.info("===================Decoded the String============");
 
-        byte[] data = xmlString.toString().getBytes();
+        byte[] data = decodedStr.toString().getBytes();
 
         try{
             String path = "dataFiles/treeDiagram/answer"+System.currentTimeMillis()+".svg";
